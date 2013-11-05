@@ -20,10 +20,8 @@ describe Matriz do
 	describe "# Multiplicacion" do
 		it "Multiplicamos @m1*@m1" do
 			m = @m1*@m1
-			@m1[0].should eq(12)
-			@m1[1].should eq(18)
-			@m1[2].should eq(28)
-			@m1[3].should eq(42)
+			(m == ([[7,10],[15,22]])).should eq(true)
+			#m.should eq([[7,10],[15,22]])
 
 		end
 	end

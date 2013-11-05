@@ -39,6 +39,24 @@ class Matriz
 			r
 		end
 	end
+
+	def *(other)
+		if(other.is_a?Matriz)
+			result = Array.new(@fil){Array.new(@col) {0}}
+			@fil.times do |i|
+				other.col.times do |j|
+					aux = 0
+                    @col.times do |k|
+                        aux += @matriz[i][k] * other.matriz[k][j]
+                    end
+                    result[i][j] = aux
+			    end
+			end
+			r = Matriz.new(@fil,@col)
+			r.fill(result)
+			r
+		end
+	end
 	
 	def ==(other)
 		cont = 0
@@ -62,15 +80,3 @@ class Matriz
 		end
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
