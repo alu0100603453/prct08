@@ -72,20 +72,6 @@ class Matriz
 		end
 	end
 	
-	def trasp
-		result = Array.new
-		@col.times do |i|
-			fila = Array.new
-			@fil.times do |j|
-                fila << @matriz[j][i]
-		    end
-		    result << fila
-		end
-		r = Matriz.new(@col,@fil)
-		r.fill(result)
-		r
-	end
-
 	def to_s
 		pr = ""
         @fil.times do |i|
@@ -96,7 +82,7 @@ class Matriz
         end
         pr
 	end
-
+	
 	def ==(other)
 		cont = 0
 		@fil.times do |i|
@@ -118,6 +104,21 @@ class Matriz
 			return false
 		end
 	end
+
+	def trasp
+		result = Array.new
+		@col.times do |i|
+			fila = Array.new
+			@fil.times do |j|
+                fila << @matriz[j][i]
+		    end
+		    result << fila
+		end
+		r = Matriz.new(@col,@fil)
+		r.fill(result)
+		r
+	end
+
 end
 
 if __FILE__ == $0
