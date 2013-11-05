@@ -1,8 +1,8 @@
-require Matrix
+require Matriz
 
-describe Maxtrix do
+describe Matriz do
 	before :each do
-		@m1 = Matrix.new(2)
+		@m1 = Matriz.new(2)
 		@m1.fill([1,2],[3,4])
 	end
 	describe "# Almacenamiento" do
