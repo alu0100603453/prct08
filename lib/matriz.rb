@@ -40,6 +40,20 @@ class Matriz
 		end
 	end
 
+	def -(other)
+		if(other.is_a?Matriz)
+			result = Array.new(@fil){Array.new(@col) {0}}
+			@fil.times do |i|
+				@col.times do |j|
+	                result[i][j] = @matriz[i][j] - other.matriz[i][j]
+			    end
+			end
+			r = Matriz.new(@fil,@col)
+			r.fill(result)
+			r
+		end
+	end
+
 	def *(other)
 		if(other.is_a?Matriz)
 			result = Array.new(@fil){Array.new(@col) {0}}
@@ -58,6 +72,31 @@ class Matriz
 		end
 	end
 	
+	def trasp
+		result = Array.new
+		@col.times do |i|
+			fila = Array.new
+			@fil.times do |j|
+                fila << @matriz[j][i]
+		    end
+		    result << fila
+		end
+		r = Matriz.new(@col,@fil)
+		r.fill(result)
+		r
+	end
+
+	def to_s
+		pr = ""
+        @fil.times do |i|
+                @col.times do |j|
+                        pr << "#{@matriz[i][j]} "
+                end
+                pr << "\n"
+        end
+        pr
+	end
+
 	def ==(other)
 		cont = 0
 		@fil.times do |i|
@@ -79,4 +118,12 @@ class Matriz
 			return false
 		end
 	end
+end
+
+if __FILE__ == $0
+	A = Matriz.new(2,3)
+	A.fill([[1,2,5],[3,4,5]])
+	puts A
+	B = A.trasp
+	puts B
 end
