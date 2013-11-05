@@ -11,7 +11,7 @@ describe Matriz do
 		end
 	end
 	describe "# Operacion Suma" do
-		it "sumamos la matriz consigo misma" do
+		it "sumamos la matriz consigomisma" do
 			m = @m1+@m1
 			@m1[0].should eq(2)
 			@m1[1].should eq(4)

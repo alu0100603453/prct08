@@ -11,15 +11,15 @@ class Matriz
 
 	def fill(array=nil)
 		if(array != nil)
-			for i in (0..@fil-1)
-				for j in (0..@col-1)
+			for i in (0..@fil)
+				for j in (0..@col)
 					@matriz[i][j] = array[i][j]
 				end
 			end
 		else
 			p_rand = Random.new()
-			for i in (0..@fil-1)
-				for j in (0..@col-1)
+			for i in (0..@fil)
+				for j in (0..@col)
 					@matriz[i][j] = p_rand.rand(30)
 				end
 			end
@@ -28,8 +28,8 @@ class Matriz
 	
 	def ==(other)
 		cont = 0
-		for i in (0..@fil-1)
-			for j in (0..@col-1)
+		for i in (0..@fil)
+			for j in (0..@col)
 				if(@matriz[i][j] == other[i][j])
 					cont += 1
 				end
